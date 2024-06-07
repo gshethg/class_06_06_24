@@ -14,7 +14,10 @@ library(primer.data)
 ```
 
 ```{r}
+#| echo: false
 #| label: main-plot
+
+
 connectedness |> 
   drop_na() |> 
   ggplot(aes(x = population)) +
