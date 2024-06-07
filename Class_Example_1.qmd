@@ -1,0 +1,11 @@
+---
+title: "Class_Example_1"
+author: "Gitanjali Sheth"
+format: html
+---
+
+```{r}
+#| echo: false
+5 + 5
+```
+
