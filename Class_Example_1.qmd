@@ -2,10 +2,11 @@
 title: "Class_Example_1"
 author: "Gitanjali Sheth"
 format: html
+execute:
+  echo: false
 ---
 
 ```{r}
-#| echo: false
 #| message: false
 
 library(tidyverse)
@@ -14,19 +15,18 @@ library(primer.data)
 ```
 
 ```{r}
-#| echo: false
 #| label: main-plot
+#| message: false
 
 
 connectedness |> 
   drop_na() |> 
-  ggplot(aes(x = population)) +
-    geom_histogram(bins = 100) +
-    scale_x_log10(labels = scales::comma_format()) +
-    labs(title = "US County Populations in 2018",
-         subtitle = "Populations are highly skewed",
+  ggplot(aes(x = population, y = connectedness)) +
+    geom_point() + scale_x_log10(labels = scales::comma_format()) + geom_smooth(method = "lm") + 
+    labs(title = "US County Populations vs. Economic Connectedness",
+         subtitle = "Populations size does not matter to EC",
          x = "Population",
-         y = "Number of Counties",
+         y = "Economic Connectedness",
          caption = "Opportunity Insights")
 ```
 
