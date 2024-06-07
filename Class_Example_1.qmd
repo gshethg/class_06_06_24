@@ -6,6 +6,24 @@ format: html
 
 ```{r}
 #| echo: false
-5 + 5
+#| message: false
+
+library(tidyverse)
+library(primer.data)
+
+```
+
+```{r}
+#| label: main-plot
+connectedness |> 
+  drop_na() |> 
+  ggplot(aes(x = population)) +
+    geom_histogram(bins = 100) +
+    scale_x_log10(labels = scales::comma_format()) +
+    labs(title = "US County Populations in 2018",
+         subtitle = "Populations are highly skewed",
+         x = "Population",
+         y = "Number of Counties",
+         caption = "Opportunity Insights")
 ```
 
